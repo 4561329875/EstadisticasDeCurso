@@ -4,7 +4,7 @@
  */
 package estadisticasdecurso;
 
-import java.util.HashMap;
+
 
 /**
  *
@@ -40,7 +40,7 @@ public class Curso {
         int totSem = 0;
         int gan = 0;
         int per = 0;
-        HashMap<Integer, Integer> mapa = new HashMap<>();
+        
         for (Estudiante val : this.estudiantes) {
             totNot += val.getNota();
             totSem += val.getSemestre();
@@ -52,8 +52,6 @@ public class Curso {
             }
             
         }
-
-        
 
         this.notaProm=totNot/this.cantidadEst;
         this.ganadores=gan;
