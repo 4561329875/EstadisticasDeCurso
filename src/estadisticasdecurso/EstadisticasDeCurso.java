@@ -21,12 +21,12 @@ public class EstadisticasDeCurso {
 
         System.out.print("Ingrese el nombre del curso: ");
         String nombre = leer.nextLine();
-
         System.out.print("Ingrese el numero de estudiantes: ");
         int canEst = leer.nextInt();
-
         Curso cursoA = new Curso(nombre, canEst);
 
+        
+        
         Estudiante[] listaEst = new Estudiante[canEst];
         for (int i = 0; i < canEst; i++) {
             System.out.println("Ingrese informacion para el estudiante " + (i + 1));
@@ -39,15 +39,17 @@ public class EstadisticasDeCurso {
             listaEst[i] = new Estudiante(nota, semestre);
         }
 
+        
         cursoA.cargarEstudiantes(listaEst);
         cursoA.calcularEstadistica();
 
+        
         double[] datos = cursoA.mostrarDatos();
         System.out.println("\nEstadisticas del curso:");
         System.out.println("Nota Promedio: " + datos[0]);
         System.out.println("Ganadores: " + datos[1]);
         System.out.println("Perdedores: " + datos[2]);
-        System.out.println("Semestre con mas estudiantes: " + datos[3]);
+        System.out.println("Semestre promedio: " + datos[3]);
     }
 
 }

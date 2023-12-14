@@ -37,39 +37,28 @@ public class Curso {
     public void calcularEstadistica() {
 
         double totNot = 0;
-        int semmod = 0;
+        int totSem = 0;
         int gan = 0;
         int per = 0;
         HashMap<Integer, Integer> mapa = new HashMap<>();
         for (Estudiante val : this.estudiantes) {
             totNot += val.getNota();
-
+            totSem += val.getSemestre();
             if (val.getNota() < 14) {
                 per += 1;
 
             } else {
                 gan += 1;
             }
-            mapa.put(val.getSemestre(), mapa.getOrDefault(val.getSemestre(), 0) + 1);
+            
         }
 
-        int max = 0;
-        for (int frecuencia : mapa.values()) {
-            max = Math.max(max, frecuencia);
-        }
-
-        for (int a : mapa.keySet()) {
-            if (mapa.get(a) == max) {
-                semmod = a;
-
-            }
-
-        }
+        
 
         this.notaProm=totNot/this.cantidadEst;
         this.ganadores=gan;
         this.perdedores=per;
-        this.semestreProm=semmod;
+        this.semestreProm=totSem/this.cantidadEst;
         
     }
 
